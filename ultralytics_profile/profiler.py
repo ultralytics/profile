@@ -143,6 +143,9 @@ class Profiler:
             # Only keep meaningful functions with some execution time
             if cumulative_time < 0.001:
                 continue
+            
+            # Extract class name from function context
+            class_name = self._extract_class_name(filename, line_num, func_name)
                 
             # Create meaningful function key with module path
             if 'ultralytics' in filename:
@@ -150,25 +153,42 @@ class Profiler:
                 parts = filename.split('ultralytics/')[-1].split('/')
                 if len(parts) > 1:
                     module_path = '.'.join(parts[:-1])
-                    key = f"ultralytics.{module_path}.{Path(filename).stem}:{func_name}:{line_num}"
+                    base_key = f"ultralytics.{module_path}.{Path(filename).stem}"
                 else:
-                    key = f"ultralytics.{Path(filename).stem}:{func_name}:{line_num}"
+                    base_key = f"ultralytics.{Path(filename).stem}"
+                
+                if class_name:
+                    key = f"{base_key}:{class_name}.{func_name}:{line_num}"
+                else:
+                    key = f"{base_key}:{func_name}:{line_num}"
             elif 'torch' in filename and 'site-packages' in filename:
                 # Only show torch forward/compute functions
                 if not any(keyword in func_name.lower() for keyword in 
                           ['forward', '__call__', 'conv', 'relu', 'pool', 'norm', 'activation']):
                     continue
                 torch_part = filename.split('torch/')[-1].split('/')[0]
-                key = f"torch.{torch_part}.{Path(filename).stem}:{func_name}:{line_num}"
+                base_key = f"torch.{torch_part}.{Path(filename).stem}"
+                if class_name:
+                    key = f"{base_key}:{class_name}.{func_name}:{line_num}"
+                else:
+                    key = f"{base_key}:{func_name}:{line_num}"
             elif any(pkg in filename for pkg in ['numpy', 'cv2', 'PIL', 'torchvision']):
                 # Other important packages doing actual work
                 pkg_name = next(pkg for pkg in ['numpy', 'cv2', 'PIL', 'torchvision'] if pkg in filename)
                 if cumulative_time < 0.005:  # Higher threshold for external packages
                     continue
-                key = f"{pkg_name}.{Path(filename).stem}:{func_name}:{line_num}"
+                base_key = f"{pkg_name}.{Path(filename).stem}"
+                if class_name:
+                    key = f"{base_key}:{class_name}.{func_name}:{line_num}"
+                else:
+                    key = f"{base_key}:{func_name}:{line_num}"
             else:
                 # User scripts and other files
-                key = f"{Path(filename).stem}:{func_name}:{line_num}"
+                base_key = Path(filename).stem
+                if class_name:
+                    key = f"{base_key}:{class_name}.{func_name}:{line_num}"
+                else:
+                    key = f"{base_key}:{func_name}:{line_num}"
             
             # Prioritize ultralytics functions
             is_ultralytics = 'ultralytics' in filename
@@ -185,6 +205,26 @@ class Profiler:
         # Sort by ultralytics functions first, then by cumulative time
         return dict(sorted(timings.items(), 
                           key=lambda x: (not x[1].get("is_ultralytics", False), -x[1]["cumulative_time"])))
+
+    def _extract_class_name(self, filename: str, line_num: int, func_name: str) -> Optional[str]:
+        """Extract class name by analyzing source code at the given line."""
+        try:
+            with open(filename, 'r', encoding='utf-8') as f:
+                lines = f.readlines()
+            
+            # Search backwards from the function line to find class definition
+            for i in range(min(line_num - 1, len(lines) - 1), -1, -1):
+                line = lines[i].strip()
+                if line.startswith('class ') and ':' in line:
+                    # Extract class name
+                    class_def = line.split('class ')[1].split(':')[0].split('(')[0].strip()
+                    return class_def
+                # Stop if we hit another function at the same or higher indentation level
+                if line.startswith('def ') and not line.startswith('    def'):
+                    break
+            return None
+        except (IOError, IndexError, UnicodeDecodeError):
+            return None
 
     def analyze_performance(self, timings: Dict, output: str, top_n: int = 10):
         """Analyze and report performance bottlenecks."""
