@@ -1,132 +1,134 @@
-<a href="https://www.ultralytics.com/"><img src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Original.svg" width="320" alt="Ultralytics logo"></a>
+<div align="center">
+  <p>
+    <a href="https://ultralytics.com/" target="_blank">
+      <img width="1024", src="https://github.com/ultralytics/assets/raw/main/logo/Ultralytics_Logotype_Reverse.svg"></a>
+  </p>
 
-# 🛠 Ultralytics Python Project Template
+[English](README.md) | [简体中文](README.zh-CN.md) | [日本語](README.ja-JP.md) | [한국어](README.ko-KR.md) | [العربية](README.ar-EG.md) | [Deutsch](README.de-DE.md) | [Français](README.fr-FR.md) | [Español](README.es-ES.md) | [Português](README.pt-BR.md) | [Türkçe](README.tr-TR.md) | [Tiếng Việt](README.vi-VN.md) | [हिंदी](README.hi-IN.md) | [עברית](README.he-IL.md)
 
-Welcome to the Ultralytics Python Project Template! This repository provides a standardized foundation for initiating Python projects at [Ultralytics](https://www.ultralytics.com/). It incorporates best practices in project structure, configuration, and essential tooling to streamline development. By using this template, Ultralytics developers can ensure consistency, maintain high quality standards, and accelerate the setup process for new Python-based software. Explore our [Ultralytics Solutions](https://www.ultralytics.com/solutions) to see how we apply these standards in real-world applications.
+<br>
+  <a href="https://github.com/ultralytics/profile/actions/workflows/ci.yaml"><img src="https://github.com/ultralytics/profile/actions/workflows/ci.yaml/badge.svg" alt="Ultralytics CI"></a>
+  <a href="https://zenodo.org/badge/latestdoi/264818686"><img src="https://zenodo.org/badge/264818686.svg" alt="Ultralytics Profile Citation"></a>
+  <a href="https://hub.docker.com/r/ultralytics/ultralytics"><img src="https://img.shields.io/docker/pulls/ultralytics/ultralytics?logo=docker" alt="Docker Pulls"></a>
+  <a href="https://ultralytics.com/discord"><img alt="Discord" src="https://img.shields.io/discord/1089800235347353640?logo=discord&logoColor=white&label=Discord&color=blue"></a>
+  <br>
+  <a href="https://console.paperspace.com/github/ultralytics/profile"><img src="https://assets.paperspace.io/img/gradient-badge.svg" alt="Run on Gradient"></a>
+  <a href="https://colab.research.google.com/github/ultralytics/profile"><img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"></a>
+  <a href="https://www.kaggle.com/ultralytics/profile"><img src="https://kaggle.com/static/images/open-in-kaggle.svg" alt="Open In Kaggle"></a>
+</div>
 
-[![Template CI](https://github.com/ultralytics/template/actions/workflows/ci.yml/badge.svg)](https://github.com/ultralytics/template/actions/workflows/ci.yml)
-[![Ultralytics Actions](https://github.com/ultralytics/template/actions/workflows/format.yml/badge.svg)](https://github.com/ultralytics/template/actions/workflows/format.yml)
-[![codecov](https://codecov.io/gh/ultralytics/template/graph/badge.svg?token=K9IunpFzjS)](https://codecov.io/gh/ultralytics/template)
+# Ultralytics Profile 🚀
 
-[![Ultralytics Discord](https://img.shields.io/discord/1089800235347353640?logo=discord&logoColor=white&label=Discord&color=blue)](https://discord.com/invite/ultralytics)
-[![Ultralytics Forums](https://img.shields.io/discourse/users?server=https%3A%2F%2Fcommunity.ultralytics.com&logo=discourse&label=Forums&color=blue)](https://community.ultralytics.com/)
-[![Ultralytics Reddit](https://img.shields.io/reddit/subreddit-subscribers/ultralytics?style=flat&logo=reddit&logoColor=white&label=Reddit&color=blue)](https://reddit.com/r/ultralytics)
+A simple, powerful tool for profiling any Python code or command execution with detailed performance analysis.
 
-## 🗂️ Repository Structure
+## 📦 Installation
 
-This template is meticulously organized for intuitive navigation and a clear understanding of project components. Familiarize yourself with the [Python project structure best practices](https://realpython.com/python-application-layouts/) to make the most of this layout.
-
-- `src/` or `your_package_name/`: Contains the core source code of your Python package, organized into modules. Using a `src` layout is a common practice detailed in [Python packaging guides](https://packaging.python.org/en/latest/tutorials/packaging-projects/#configuring-metadata).
-- `tests/`: Dedicated directory for unit tests and integration tests, crucial for implementing [continuous testing](https://docs.ultralytics.com/help/CI/) practices. Consider using frameworks like [pytest](https://docs.pytest.org/en/stable/) for writing tests.
-- `docs/`: (Optional) Houses project documentation. Tools like [MkDocs](https://www.mkdocs.org/) can be used to generate comprehensive documentation from this directory.
-- `pyproject.toml`: The standard configuration file for Python projects, detailing dependencies, build system requirements, formatting rules, and packaging information as specified by [PEP 518](https://peps.python.org/pep-0518/) and subsequent PEPs.
-- `.gitignore`: Configured to exclude unnecessary files (like `*.pyc` or virtual environment directories) from [Git](https://git-scm.com/) tracking.
-- `LICENSE`: Specifies the open-source license (defaulting to AGPL-3.0) under which the project is released.
-- `.github/workflows/`: Contains [GitHub Actions](https://docs.github.com/en/actions) workflows for automating Continuous Integration and Continuous Deployment (CI/CD) processes. Learn more about [CI/CD concepts](https://www.redhat.com/en/topics/devops/what-is-ci-cd).
-- `.pre-commit-config.yaml`: (Optional) Configuration for [pre-commit hooks](https://pre-commit.com/) to automatically check and enforce code quality standards before commits.
-- `Dockerfile`: (Optional) Defines instructions for building a [Docker](https://www.docker.com/) container image, enabling [containerization](https://www.ultralytics.com/glossary/containerization) of the project environment for consistent deployment.
-- `environment.yml`: (Optional, for Conda users) Manages dependencies for [Conda environments](https://docs.conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html).
-
-```plaintext
-your-project/
-│
-├── your_package_name/          # Or src/ for src-layout
-│   ├── __init__.py
-│   ├── module1.py
-│   ├── module2.py
-│   └── ...
-│
-├── tests/                      # Test suite
-│   ├── __init__.py
-│   ├── test_module1.py
-│   └── ...
-│
-├── docs/                       # Documentation files (optional)
-│   └── ...
-│
-├── .github/                    # GitHub Actions workflows
-│   └── workflows/
-│       ├── ci.yml
-|       └── format.yml
-│
-├── .gitignore                  # Git ignore rules
-├── .pre-commit-config.yaml     # Pre-commit hook config (optional)
-├── Dockerfile                  # Docker configuration (optional)
-├── environment.yml             # Conda environment config (optional)
-├── LICENSE                     # Project license file
-├── pyproject.toml              # Project configuration and dependencies
-└── README.md                   # This file
+```bash
+pip install -e .
 ```
 
-### 📦 Source Code Directory (`src/` or `your_package_name/`)
+## 🚀 Usage
 
-The `src/` or `your_package_name/` directory is the heart of your project, containing the Python code that constitutes your package. Adopting a structured layout promotes clean imports and simplifies testing and packaging.
+### Command Line
 
-### 🧪 Testing Directory (`tests/`)
+```bash
+# Profile Python scripts
+profile python script.py
 
-The `tests/` directory is crucial for ensuring code reliability and robustness. It should contain comprehensive unit and integration tests covering various aspects of your package. Effective testing is a cornerstone of quality software development.
+# Profile Python modules
+profile python -c "import ultralytics; print('done')"
 
-### 📚 Documentation Directory (`docs/`)
+# Profile CLI tools
+profile yolo predict model=yolo11n.pt source=image.jpg
 
-For projects requiring detailed documentation beyond the README, the `docs/` directory is the designated space. Utilizing tools like [Sphinx](https://www.sphinx-doc.org/en/master/) allows for the generation of professional, high-quality documentation from reStructuredText or Markdown files. Check out the [Ultralytics Docs](https://docs.ultralytics.com/) for an example.
+# Profile bash scripts
+profile bash script.sh
+```
 
-## ✨ Starting a New Project
+### Python API
 
-Kickstart your new Python project using this template with these steps:
+```python
+from profile import profile_command
 
-1.  **Create Your Repository**: Use this template on GitHub by clicking the "Use this template" button to generate a new repository for your project. Learn more about [creating a repository from a template](https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template).
-2.  **Customize**: Tailor the template files (`pyproject.toml`, `README.md`, `.github/workflows/*.yml`, etc.) to match your specific project's name, goals, and requirements.
-3.  **Develop**: Begin adding your source code into the `your_package_name/` (or `src/`) directory and write corresponding tests in the `tests/` directory.
-4.  **Document**: Update this `README.md` thoroughly and, if needed, populate the `docs/` directory with more extensive documentation.
-5.  **Integrate**: Leverage the pre-configured GitHub Actions for automated testing, linting, and other [CI/CD](https://www.ultralytics.com/glossary/continuous-integration-ci) processes to maintain code quality.
+# Profile any command
+timings = profile_command("python script.py")
 
-## 🔧 Utilizing the Template
+# Profile with custom analysis depth
+timings = profile_command("yolo predict model=yolo11n.pt", top_n=20)
+```
 
-For Ultralytics team members and external contributors:
+## ✨ Features
 
-- Clone the newly created repository based on this template to start working on the project locally.
-- Ensure the `README.md` is updated to accurately reflect the project's purpose, usage, and specifics.
-- Remove or modify optional components (like `Dockerfile`, `environment.yml`) based on the project's deployment and dependency management strategy.
+- **🌐 Universal profiling**: Works with any Python code or bash commands
+- **📊 Detailed analysis**: Shows execution time, call counts, and averages
+- **🎯 Clean output**: Organized performance reports with hotspot identification
+- **🔄 No circular imports**: Runs commands in separate processes to avoid conflicts
+- **⚡ Simple CLI**: Just prefix any command with `profile`
 
-With this template, Ultralytics aims to foster a culture of excellence and uniformity in Python software development, ensuring every project starts on a solid foundation aligned with industry standards and organizational best practices. For insights into managing ML projects, explore our [MLOps guide](https://www.ultralytics.com/glossary/machine-learning-operations-mlops).
+## 💡 Examples
 
-## 💡 Contribute
+```bash
+# Profile YOLO11 inference
+profile yolo predict model=yolo11n.pt source=https://ultralytics.com/images/bus.jpg
 
-Ultralytics thrives on community collaboration, and we deeply value your contributions! Whether it's reporting bugs, suggesting features, or submitting code changes, your involvement is crucial.
+# Profile custom Python code  
+profile python -c "import torch; x = torch.randn(1000, 1000); y = x @ x.T"
 
-- **Reporting Issues**: Encounter a bug? Please report it on [GitHub Issues](https://github.com/ultralytics/template/issues).
-- **Feature Requests**: Have an idea for improvement? Share it via [GitHub Issues](https://github.com/ultralytics/template/issues).
-- **Pull Requests**: Want to contribute code? Please read our [Contributing Guide](https://docs.ultralytics.com/help/contributing/) first, then submit a Pull Request.
-- **Feedback**: Share your thoughts and experiences by participating in our official [Survey](https://www.ultralytics.com/survey?utm_source=github&utm_medium=social&utm_campaign=Survey).
+# Profile installation
+profile pip install numpy
 
-A heartfelt thank you 🙏 goes out to all our contributors! Your efforts help make Ultralytics tools better for everyone.
+# Profile tests
+profile python -m pytest tests/
+```
 
-[![Ultralytics open-source contributors](https://raw.githubusercontent.com/ultralytics/assets/main/im/image-contributors.png)](https://github.com/ultralytics/ultralytics/graphs/contributors)
+## 📈 Output
+
+The profiler provides detailed performance analysis including:
+
+- **🐌 Slowest functions**: Functions consuming the most execution time
+- **🔥 Most called functions**: Functions with highest call frequency  
+- **⏱️ Timing details**: Cumulative time, self time, call counts, and averages
+- **📁 File context**: Source file and line number information
+
+## 🤝 Contribute
+
+We love your input! We want to make contributing to Ultralytics Profile as easy and transparent as possible. Please see our [Contributing Guide](CONTRIBUTING.md) to get started, and fill out our [survey](https://ultralytics.com/survey?utm_source=github&utm_medium=social&utm_campaign=Survey) to send us feedback on your experiences. Thank you 🙏 to all our contributors!
+
+<a href="https://github.com/ultralytics/profile/graphs/contributors">
+<img width="100%" src="https://github.com/ultralytics/profile/graphs/contributors">
+</a>
 
 ## 📄 License
 
-Ultralytics offers two licensing options to accommodate diverse needs:
+Ultralytics offers two licensing options to accommodate diverse use cases:
 
-- **AGPL-3.0 License**: Ideal for students, researchers, and enthusiasts passionate about open collaboration and knowledge sharing. This [OSI-approved](https://opensource.org/license/agpl-v3) open-source license promotes transparency and community involvement. See the [LICENSE](LICENSE) file for details.
-- **Enterprise License**: Designed for commercial applications, this license permits the seamless integration of Ultralytics software and AI models into commercial products and services, bypassing the copyleft requirements of AGPL-3.0. For commercial use cases, please inquire about an [Ultralytics Enterprise License](https://www.ultralytics.com/license).
+- **AGPL-3.0 License**: This [OSI-approved](https://opensource.org/licenses/) open-source license is ideal for students and enthusiasts, promoting open collaboration and knowledge sharing. See the [LICENSE](https://github.com/ultralytics/profile/blob/main/LICENSE) file for more details.
+- **Enterprise License**: Designed for commercial use, this license permits seamless integration of Ultralytics software and AI models into commercial goods and services, bypassing the open-source requirements of AGPL-3.0. If your scenario involves embedding our solutions into a commercial offering, reach out through [Ultralytics Licensing](https://ultralytics.com/license).
 
-## 📮 Contact
+## 📞 Contact
 
-For bug reports or feature suggestions related to this template or other Ultralytics projects, please use [GitHub Issues](https://github.com/ultralytics/template/issues). For general questions, discussions, and community support, join our [Discord](https://discord.com/invite/ultralytics) server!
+For Ultralytics bug reports and feature requests please visit [GitHub Issues](https://github.com/ultralytics/profile/issues), and join our [Discord](https://ultralytics.com/discord) community for questions and discussions!
 
 <br>
 <div align="center">
-  <a href="https://github.com/ultralytics"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-github.png" width="3%" alt="Ultralytics GitHub"></a>
-  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
-  <a href="https://www.linkedin.com/company/ultralytics/"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-linkedin.png" width="3%" alt="Ultralytics LinkedIn"></a>
-  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
-  <a href="https://twitter.com/ultralytics"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-twitter.png" width="3%" alt="Ultralytics Twitter"></a>
-  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
-  <a href="https://youtube.com/ultralytics?sub_confirmation=1"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-youtube.png" width="3%" alt="Ultralytics YouTube"></a>
-  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
-  <a href="https://www.tiktok.com/@ultralytics"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-tiktok.png" width="3%" alt="Ultralytics TikTok"></a>
-  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
-  <a href="https://ultralytics.com/bilibili"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-bilibili.png" width="3%" alt="Ultralytics BiliBili"></a>
-  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="3%" alt="space">
-  <a href="https://discord.com/invite/ultralytics"><img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-discord.png" width="3%" alt="Ultralytics Discord"></a>
+  <a href="https://github.com/ultralytics" style="text-decoration:none;">
+    <img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-github.png" width="2%" alt="" /></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="2%" alt="" />
+  <a href="https://www.linkedin.com/company/ultralytics" style="text-decoration:none;">
+    <img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-linkedin.png" width="2%" alt="" /></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="2%" alt="" />
+  <a href="https://twitter.com/ultralytics" style="text-decoration:none;">
+    <img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-twitter.png" width="2%" alt="" /></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="2%" alt="" />
+  <a href="https://youtube.com/ultralytics" style="text-decoration:none;">
+    <img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-youtube.png" width="2%" alt="" /></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="2%" alt="" />
+  <a href="https://www.tiktok.com/@ultralytics" style="text-decoration:none;">
+    <img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-tiktok.png" width="2%" alt="" /></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="2%" alt="" />
+  <a href="https://www.instagram.com/ultralytics/" style="text-decoration:none;">
+    <img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-instagram.png" width="2%" alt="" /></a>
+  <img src="https://github.com/ultralytics/assets/raw/main/social/logo-transparent.png" width="2%" alt="" />
+  <a href="https://ultralytics.com/discord" style="text-decoration:none;">
+    <img src="https://github.com/ultralytics/assets/raw/main/social/logo-social-discord.png" width="2%" alt="" /></a>
 </div>
