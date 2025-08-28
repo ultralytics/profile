@@ -2,7 +2,7 @@
 """Command-line interface for the profiler."""
 
 import sys
-from profile import profile_command
+from ultralytics_profile import profile_command
 
 
 def main():

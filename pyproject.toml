@@ -3,7 +3,7 @@ requires = ["setuptools>=70.0.0", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "profile"
+name = "ultralytics-profile"
 dynamic = ["version"]
 description = "A tool for profiling any Python code or command"
 readme = "README.md"
@@ -45,13 +45,13 @@ dev = [
 "Bug Reports" = "https://github.com/ultralytics/profile/issues"
 
 [project.scripts]
-profile = "profile.cli:main"
+profile = "ultralytics_profile.cli:main"
 
 [tool.setuptools]
-packages = { find = { where = ["."], include = ["profile", "profile.*"] } }
+packages = { find = { where = ["."], include = ["ultralytics_profile", "ultralytics_profile.*"] } }
 
 [tool.setuptools.dynamic]
-version = { attr = "profile.__version__" }
+version = { attr = "ultralytics_profile.__version__" }
 
 [tool.pytest.ini_options]
 addopts = "--doctest-modules --durations=30 --color=yes"

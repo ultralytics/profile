@@ -1,5 +1,5 @@
 import pytest
-from profile import profile_command, Profiler
+from ultralytics_profile import profile_command, Profiler
 
 
 def test_profile_command():

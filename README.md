@@ -48,7 +48,7 @@ profile bash script.sh
 ### Python API
 
 ```python
-from profile import profile_command
+from ultralytics_profile import profile_command
 
 # Profile any command
 timings = profile_command("python script.py")
