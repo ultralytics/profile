@@ -2,8 +2,7 @@
 
 
 def add_numbers(a, b):
-    """
-    Adds two numbers together using element-wise addition.
+    """Adds two numbers together using element-wise addition.
 
     Args:
         a (int | float | torch.Tensor): First number or tensor to add.
@@ -23,8 +22,7 @@ def add_numbers(a, b):
 
 
 def main():
-    """
-    Main entry point for the Ultralytics Template application.
+    """Main entry point for the Ultralytics Template application.
 
     Executes a simple addition operation by calling the add_numbers function with predefined values. This function
     serves as a basic demonstration of program flow and function calling within the Ultralytics framework.
