@@ -4,9 +4,9 @@
 
 Welcome to the Ultralytics Python Project Template! This repository provides a standardized foundation for initiating Python projects at [Ultralytics](https://www.ultralytics.com/). It incorporates best practices in project structure, configuration, and essential tooling to streamline development. By using this template, Ultralytics developers can ensure consistency, maintain high quality standards, and accelerate the setup process for new Python-based software. Explore our [Ultralytics Solutions](https://www.ultralytics.com/solutions) to see how we apply these standards in real-world applications.
 
-[![Template CI](https://github.com/ultralytics/template/actions/workflows/ci.yml/badge.svg)](https://github.com/ultralytics/template/actions/workflows/ci.yml)
-[![Ultralytics Actions](https://github.com/ultralytics/template/actions/workflows/format.yml/badge.svg)](https://github.com/ultralytics/template/actions/workflows/format.yml)
-[![codecov](https://codecov.io/gh/ultralytics/template/graph/badge.svg?token=K9IunpFzjS)](https://codecov.io/gh/ultralytics/template)
+[![Profile CI](https://github.com/ultralytics/profile/actions/workflows/ci.yml/badge.svg)](https://github.com/ultralytics/profile/actions/workflows/ci.yml)
+[![Ultralytics Actions](https://github.com/ultralytics/profile/actions/workflows/format.yml/badge.svg)](https://github.com/ultralytics/profile/actions/workflows/format.yml)
+[![codecov](https://codecov.io/github/ultralytics/profile/branch/main/graph/badge.svg)](https://app.codecov.io/github/ultralytics/profile)
 
 [![Ultralytics Discord](https://img.shields.io/discord/1089800235347353640?logo=discord&logoColor=white&label=Discord&color=blue)](https://discord.com/invite/ultralytics)
 [![Ultralytics Forums](https://img.shields.io/discourse/users?server=https%3A%2F%2Fcommunity.ultralytics.com&logo=discourse&label=Forums&color=blue)](https://community.ultralytics.com/)
