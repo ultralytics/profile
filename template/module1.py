@@ -1,6 +1,5 @@
 # Ultralytics 🚀 AGPL-3.0 License - https://ultralytics.com/license
 
-
 def add_numbers(a, b):
     """Adds two numbers together using element-wise addition.
 
