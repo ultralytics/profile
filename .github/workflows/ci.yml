@@ -61,11 +61,12 @@ jobs:
           example-cli-command
 
       - name: Upload coverage to Codecov
+        continue-on-error: true
         uses: codecov/codecov-action@v7
         with:
           files: ./pytest-coverage.xml,./unittest-coverage.xml # optional (default = coverage.xml)
           disable_search: true
-          fail_ci_if_error: true
+          fail_ci_if_error: false
           flags: template_coverage # optional
           plugins: noop
           use_oidc: true
