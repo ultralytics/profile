@@ -11,7 +11,7 @@
 # - [tool.*]: Configures settings for various tools (pytest, yapf, etc.) used in the project.
 
 # Installation:
-# The Template library can be installed using the command: 'pip install git+https://TOKEN:x-oauth-basic@github.com/ultralytics/template.git@main'
+# The Template library can be installed using the command: 'pip install git+https://github.com/ultralytics/profile.git'
 # For development purposes, you can install the package in editable mode with: 'pip install -e .'
 # This approach allows for real-time code modifications without the need for re-installation.
 
@@ -50,6 +50,7 @@ classifiers = [# Optional, for a list of valid classifiers, see https://pypi.org
     "Programming Language :: Python :: 3.11",
     "Programming Language :: Python :: 3.12",
     "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
     "Topic :: Software Development",
     "Topic :: Scientific/Engineering",
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
@@ -85,7 +86,6 @@ example-cli-command = "template.module1:main"  # executes `template.module1.main
 # Tools settings -------------------------------------------------------------------------------------------------------
 [tool.setuptools]  # configuration specific to the `setuptools` build backend.
 packages = { find = { where = ["."], include = ["template", "template.*"] } }
-package-data = { "sample" = ["*.yaml"] }
 
 [tool.setuptools.dynamic]
 version = { attr = "template.__version__" }
