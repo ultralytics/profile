@@ -75,10 +75,9 @@ dev = [
 
 [project.urls]  # Optional
 "Homepage" = "https://ultralytics.com"
-"Source" = "https://github.com/ultralytics/template"
-"Documentation" = "https://docs.ultralytics.com"
-"Bug Reports" = "https://github.com/ultralytics/template/issues"
-"Changelog" = "https://github.com/ultralytics/template/releases"
+"Source" = "https://github.com/ultralytics/profile"
+"Bug Reports" = "https://github.com/ultralytics/profile/issues"
+"Changelog" = "https://github.com/ultralytics/profile/releases"
 
 [project.scripts]  # Optional
 example-cli-command = "template.module1:main"  # executes `template.module1.main` when "example-cli-command" is run from CLI
@@ -103,7 +102,3 @@ wrap-descriptions = 120
 in-place = true
 pre-summary-newline = true
 close-quotes-on-newline = true
-
-[tool.codespell]
-ignore-words-list = "crate,nd,strack,dota,ane,segway,fo,gool,winn,commend"
-skip = '*.csv,*venv*,docs/??/,docs/mkdocs_??.yml'
