@@ -40,7 +40,7 @@ pytest tests -v --cov=./ --cov-report=xml:pytest-coverage.xml # coverage (CI com
 example-cli-command                                           # run the example CLI entry point
 ```
 
-CI matrix: Python 3.12/3.13/3.14 × ubuntu/macos/windows. It runs the tests four ways — pytest and unittest, each with and without coverage — plus the CLI entry point, so tests must pass under both runners. `addopts` includes `--doctest-modules`, so a bare `pytest` also executes every docstring example in `template/`; keep those examples runnable with only the declared dependencies.
+CI matrix: Python 3.12/3.13/3.15 × ubuntu/macos/windows. It runs the tests four ways — pytest and unittest, each with and without coverage — plus the CLI entry point, so tests must pass under both runners. `addopts` includes `--doctest-modules`, so a bare `pytest` also executes every docstring example in `template/`; keep those examples runnable with only the declared dependencies.
 
 ## Architecture
 
